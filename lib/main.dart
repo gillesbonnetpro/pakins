@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
               ],
             ),
             Simon(
-              pointNb: 4,
+              pointNb: 8,
             )
           ],
         ),
