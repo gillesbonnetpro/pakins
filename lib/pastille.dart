@@ -19,6 +19,15 @@ class Pastille extends StatefulWidget {
 }
 
 class _PastilleState extends State<Pastille> {
+  var darkColors = Color(0xFF000A1F);
+  var lightColors;
+
+  @override
+  void initState() {
+    lightColors = widget.color;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.shortestSide / widget.sizeFactor;
@@ -33,19 +42,36 @@ class _PastilleState extends State<Pastille> {
       }),
       child: Align(
         alignment: Alignment(widget.posX, widget.posY),
-        child: Container(
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 100),
           width: size,
           height: size,
+          padding: EdgeInsets.all(20.0),
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: widget.color,
-            boxShadow: widget.highLight
-                ? [
-                    BoxShadow(
-                        color: widget.color, spreadRadius: 1, blurRadius: 15)
-                  ]
-                : null,
-          ),
+              color: darkColors,
+              //borderRadius: BorderRadius.circular(20.0),
+              shape: BoxShape.circle,
+              boxShadow: widget.highLight
+                  ? null
+                  : [
+                      const BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-3, -3),
+                          blurRadius: 10.0,
+                          spreadRadius: 3.0),
+                      BoxShadow(
+                          color: darkColors,
+                          offset: const Offset(3, 3),
+                          blurRadius: 10.0,
+                          spreadRadius: 3.0)
+                    ],
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    widget.highLight ? lightColors : darkColors,
+                    widget.highLight ? darkColors : lightColors
+                  ])),
         ),
       ),
     );

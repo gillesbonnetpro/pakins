@@ -67,8 +67,15 @@ class _SimonState extends State<Simon> {
         child: Container(
           constraints: BoxConstraints(maxHeight: size),
           decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Color.fromARGB(255, 220, 220, 220)),
+              shape: BoxShape.circle, color: Color.fromARGB(255, 208, 207, 207)
+              /*   boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                spreadRadius: 0,
+                blurRadius: 20.0,
+              ),
+            ], */
+              ),
           child: Stack(
             children: pastList,
           ),
