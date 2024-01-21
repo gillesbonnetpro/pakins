@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakins/bg_tile.dart';
 import 'package:pakins/knob.dart';
+import 'package:pakins/simon.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,11 +14,18 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: Row(
+        body: Column(
           children: [
-            Knob(),
-            Knob(),
-            Knob(),
+            Row(
+              children: [
+                Knob(),
+                Knob(),
+                Knob(),
+              ],
+            ),
+            Expanded(
+              child: Simon(),
+            )
           ],
         ),
       ),
