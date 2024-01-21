@@ -12,11 +12,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Column(
           children: [
-            Row(
+            const Row(
               children: [
                 Knob(),
                 Knob(),
@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
               ],
             ),
             Simon(
-              pointNb: 50,
+              pointNb: 4,
             )
           ],
         ),
