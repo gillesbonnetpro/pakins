@@ -23,8 +23,8 @@ class MainApp extends StatelessWidget {
                 Knob(),
               ],
             ),
-            Expanded(
-              child: Simon(),
+            Simon(
+              pointNb: 50,
             )
           ],
         ),
