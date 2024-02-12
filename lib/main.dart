@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pakins/bg_tile.dart';
-import 'package:pakins/knob.dart';
-import 'package:pakins/simon.dart';
+import 'package:pakins/command.dart';
+import 'package:pakins/dino.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,16 +15,13 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         body: Column(
           children: [
-            const Row(
-              children: [
-                Knob(),
-                Knob(),
-                Knob(),
-              ],
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: DinoIdle(),
+              ),
             ),
-            Simon(
-              pointNb: 9,
-            )
+            Command()
           ],
         ),
       ),
